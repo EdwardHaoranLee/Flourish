@@ -3,37 +3,33 @@ import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import FlourishingTabScreen from './Tabs/FlourishingTabScreen'
+import GardenTabScreen from './Tabs/GardenTabScreen'
+import PlantpediaTabScreen from './Tabs/PlantpediaTabScreen'
+import SettingsTabScreen from './Tabs/SettingsTabScreen'
 
 const FlourishingTabScreenGenerator = () => {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Flourish!</Text>
-        </View>
+        <FlourishingTabScreen />
     );
 }
 
 const GardenTabScreenGenerator = () => {
     return (
-        <View>
-
-        </View>
-    )
+        <GardenTabScreen />
+    );
 }
 
 const PlantpediaTabScreenGenerator = () => {
     return (
-        <View>
-
-        </View>
-    )
+        <PlantpediaTabScreen />
+    );
 }
 
 const SettingsTabScreenGenerator = () => {
     return (
-        <View>
-
-        </View>
-    )
+        <SettingsTabScreen />
+    );
 }
 
 const Tab = createBottomTabNavigator();
