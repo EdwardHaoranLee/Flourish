@@ -46,13 +46,13 @@ function MyTabs() {
             <Tab.Screen
                 name="Flourishing"
                 component={FlourishingTabScreenGenerator}
-                options={{
-                    tabBarLabel: 'Updates',
-                    tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="bell" color={color} size={size} />
-                    ),
-                    tabBarBadge: 3,
-                }}
+                // options={{
+                //     tabBarLabel: 'Updates',
+                //     tabBarIcon: ({ color, size }) => (
+                //         <MaterialCommunityIcons name="bell" color={color} size={size} />
+                //     ),
+                //     tabBarBadge: 3,
+                // }}
             />
             <Tab.Screen
                 name="Garden"
