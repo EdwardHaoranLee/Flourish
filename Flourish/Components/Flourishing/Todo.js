@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 // import { CheckBox } from 'native-base';
 
-export default class SimpleCircleButton extends React.Component {
+export default class Todo extends React.Component {
     render() {
         return (
             <View
