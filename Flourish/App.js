@@ -8,6 +8,9 @@ import GardenTabScreen from './Tabs/GardenTabScreen'
 import PlantpediaTabScreen from './Tabs/PlantpediaTabScreen'
 import SettingsTabScreen from './Tabs/SettingsTabScreen'
 
+const ActiveTintColor = "#ef5e85"
+const InactiveTintColor = "#cacaca"
+
 const FlourishingTabScreenGenerator = () => {
     return (
         <FlourishingTabScreen />
@@ -36,11 +39,33 @@ const Tab = createBottomTabNavigator();
 
 function MyTabs() {
     return (
-        <Tab.Navigator>
-            <Tab.Screen name="Flourishing" component={FlourishingTabScreenGenerator} />
-            <Tab.Screen name="Garden" component={GardenTabScreenGenerator} />
-            <Tab.Screen name="Plantpedia" component={PlantpediaTabScreenGenerator} />
-            <Tab.Screen name="Settings" component={SettingsTabScreenGenerator} />
+        <Tab.Navigator tabBarOptions={{
+            activeTintColor: ActiveTintColor,
+            inactiveTintColor: InactiveTintColor
+        }}>
+            <Tab.Screen
+                name="Flourishing"
+                component={FlourishingTabScreenGenerator}
+                options={{
+                    tabBarLabel: 'Updates',
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialCommunityIcons name="bell" color={color} size={size} />
+                    ),
+                    tabBarBadge: 3,
+                }}
+            />
+            <Tab.Screen
+                name="Garden"
+                component={GardenTabScreenGenerator}
+            />
+            <Tab.Screen
+                name="Plantpedia"
+                component={PlantpediaTabScreenGenerator}
+            />
+            <Tab.Screen
+                name="Settings"
+                component={SettingsTabScreenGenerator}
+            />
         </Tab.Navigator>
     );
 }
