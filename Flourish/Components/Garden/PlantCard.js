@@ -1,7 +1,14 @@
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createStackNavigator } from '@react-navigation/stack';
+
 
 export default class PlantCard extends React.Component {
+    navigateToPlantScreen = () => {
+        // navigation.navigate('Details')
+    }
+
     render() {
         return (
             <TouchableOpacity style={{
