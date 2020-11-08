@@ -3,43 +3,29 @@ import { SafeAreaView, StatusBar, StyleSheet, Text, View, ScrollView, SectionLis
 import Todo from '../Components/Flourishing/Todo';
 
 
-export default class FlourishingTabScreen extends React.Component {
-
-    componentDidMount() {
-        this.setState({
-            plants: this.props.plants
-        })
-    }
-
-    state = {
-        plants: [],
-        reminders: []
-    }
-
-    renderItem = ({ item }) => {
-
+export default function FlourishingTabScreen() {
+    const renderItem = ({ item }) => {
+        // console.log(item);
         return (
-            <Todo name={item.name} task={item.task} freq={item.freq} date={item.date}/>
-        );
-
-    }
-
-    render() {
-        return (
-            <SafeAreaView style={styles.container}>
-                <SectionList
-                    style={styles.sectionContainer}
-                    sections={DATA}
-                    keyExtractor={(item, index) => item + index}
-                    renderItem={item => this.renderItem(item)}
-                    renderSectionHeader={({ section: { title } }) => (
-                        <Text style={styles.sectionTitle}>{title}</Text>
-                    )}
-                />
-            </SafeAreaView>
+            <Todo data={{ 'name': item.name, 'task': item.task, 'freq': item.freq, 'date': item.date, 'checked': item.checked }} />
         );
     }
 
+    return (
+        <SafeAreaView style={styles.container}>
+            {/* <View> */}
+            <SectionList
+                style={styles.sectionContainer}
+                sections={DATA}
+                keyExtractor={(item, index) => item + index}
+                renderItem={item => renderItem(item)}
+                renderSectionHeader={({ section: { title } }) => (
+                    <Text style={styles.sectionTitle}>{title}</Text>
+                )}
+            />
+            {/* </View> */}
+        </SafeAreaView>
+    );
 }
 
 
@@ -55,7 +41,7 @@ const styles = StyleSheet.create({
     },
     sectionContainer: {
         flex: 1,
-        paddingHorizontal: 16,
+        paddingHorizontal: 11,
         // paddingBottom: 500,
         // marginVertical: 20,
         // marginBottom: 0,
@@ -77,31 +63,34 @@ const TODAY_DATA = [
         'id': '0',
         'name': 'The Green Ball',
         'task': 'Watering',
-        'freq': 7,
-        'date': new Date(Date.now())
+        'freq': '1/week',
+        'date': 'Nov. 7',
+        'checked': 'false',
     },
     {
         'id': '1',
         'name': 'The Red Ball',
         'task': 'Watering',
-        'freq': 7,
-        'date': new Date(Date.now())
+        'freq': '1/week',
+        'date': 'Nov. 7',
+        'checked': 'true',
     },
     {
         'id': '2',
         'name': 'The Blue Ball',
         'task': 'Watering',
-        'freq': 7,
-        'date': new Date(Date.now())
+        'freq': '1/week',
+        'date': 'Nov. 7',
+        'checked': 'true',
     },
     {
         'id': '3',
         'name': 'The Orange Ball',
         'task': 'Watering',
-        'freq': 7,
-        'date': new Date(Date.now())
+        'freq': '1/week',
+        'date': 'Nov. 8',
+        'checked': 'true',
     },
-
 ]
 
 

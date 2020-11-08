@@ -114,9 +114,16 @@ function MyTabs() {
                             backgroundColor: '#ffffff',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            shadowOpacity: 0.3,
-                            shadowOffset:{width:0,height:0},
-                            shadowColor: "#000000",
+                            // shadowColor: "#00000050",
+                            // shadowOffset: {
+                            //     width: 0,
+                            //     height: 0,
+                            // },
+                            // shadowOpacity: 0.3,
+                            // shadowRadius: 3.84,
+                            // elevation: 3,
+                            borderWidth: 3,
+                            borderColor: '#ef5e85',
                         }}>
                             <Image
                                 source={require("./assets/camera.png")}
@@ -124,8 +131,9 @@ function MyTabs() {
                                     // width: 40,
                                     // height: 40,
                                     alignContent: 'center',
-                                    position: 'absolute',
-                                    bottom: 11, // space from bottombar
+                                    justifyContent: 'center',
+                                    // position: 'absolute',
+                                    // bottom: 10, // space from bottombar
                                     height: 50,
                                     width: 50,
                                     borderRadius: 58,
