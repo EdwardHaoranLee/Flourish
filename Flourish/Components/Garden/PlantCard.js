@@ -5,40 +5,45 @@ export default class PlantCard extends React.Component {
     render() {
         return (
             <TouchableOpacity style={{
-                // flex: 0.4,
-                height: 200,
-                width: 150,
-                flexDirection: 'column',
-                alignItems: 'center',
-                marginBottom: 26,
+                flex: 0.8,
+                height: 150,
+                // width: '100%',
+                flexDirection: 'row',
+                alignItems: 'flex-start',
+                marginBottom: 8,
+                marginHorizontal: 10,
 
                 backgroundColor: '#fff',
                 borderRadius: 10,
 
-                shadowColor: "#000",
-                shadowOffset: {
-                    width: 0,
-                    height: 4,
-                },
-                shadowOpacity: 0.32,
-                shadowRadius: 5.46,
+                // shadowColor: "#000",
+                // shadowOffset: {
+                //     width: 0,
+                //     height: 4,
+                // },
+                // shadowOpacity: 0.32,
+                // shadowRadius: 5.46,
 
-                elevation: 9,
+                // elevation: 9,
             }}>
                 <View style={{
-                    width: '100%',
-                    height: '70%',
+                    // width: '50%',
+                    // height: '100%',
                     // flex:0.7,
-                    backgroundColor: '#123123',
+                    flex: 1,
+                    // backgroundColor: '#123123',
                     borderTopLeftRadius: 10,
-                    borderTopRightRadius: 10,
+                    borderBottomLeftRadius:10, 
+                    padding: 8,
                 }}>
                     <Image
                         style={{
-                            width: '100%',
-                            height: '100%',
-                            borderTopLeftRadius: 10,
-                            borderTopRightRadius: 10,
+                            // width: '100%',
+                            // height: '100%',
+                            flex: 1,
+                            // borderTopLeftRadius: 10,
+                            // borderBottomLeftRadius:10, 
+                            borderRadius: 10,
                         }}
                         source={{ uri: this.props.data.img }}
                     />
@@ -46,11 +51,13 @@ export default class PlantCard extends React.Component {
                 <View style={{
                     flexDirection: 'column',
                     padding: 8,
-                    width: '100%',
-                    height: '30%',
+                    // width: '100%',
+                    // height: '30%',
+                    flex: 1,
+                    // flexWrap: 'wrap'
                 }}>
                     <Text style={{
-                        fontSize: 17,
+                        fontSize: 18,
                         fontWeight: 'bold',
                     }}>
                         {this.props.data.name}

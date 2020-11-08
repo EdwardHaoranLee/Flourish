@@ -3,4 +3,10 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="JSX" />
   </component>
+  <component name="ReactNativePackager" nodePath="project" reactNativePackagePath="$PROJECT_DIR$/Flourish/node_modules/react-native" workingDirectory="$PROJECT_DIR$/Flourish">
+    <scripts>
+      <item value="npm" />
+      <item value="start" />
+    </scripts>
+  </component>
 </project>
