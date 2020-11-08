@@ -197,6 +197,12 @@ const SettingsTabScreenGenerator = () => {
     );
 }
 
+const PhotoTabScreenGenerator = (tab) => {
+    return (
+        <PhotoTabScreen tab={tab}/>
+    );
+}
+
 
 const Tab = createBottomTabNavigator();
 
@@ -207,27 +213,8 @@ class MyTabs extends React.Component{
         this.takePhotoButton = React.createRef()
     }
 
-    PhotoTabScreenGenerator = (tab) => {
-        return (
-            <PhotoTabScreen tab={tab} ref={this.takePhotoButton}/>
-        );
-    }
 
 
-
-    state = {
-        tab: "Flourishing"
-    }
-
-    handleTabChange = (tabName) => {
-        this.setState({
-            tab: tabName
-        })
-    }
-
-    takePhoto = () => {
-        this.takePhotoButton.current.TakePhoto()
-    }
 
     render(){
         return (
@@ -236,7 +223,6 @@ class MyTabs extends React.Component{
                 inactiveTintColor: InactiveTintColor
             }}>
                 <Tab.Screen
-                    onPress={() => this.handleTabChange("Flourishing")}
                     name="Flourishing"
                     component={FlourishingTabScreenGenerator}
                     options={{
@@ -248,7 +234,6 @@ class MyTabs extends React.Component{
                     }}
                 />
                 <Tab.Screen
-                    onPress={() => this.handleTabChange("Garden")}
                     name="Garden"
                     component={GardenTabScreenGenerator}
                     options={{
@@ -260,12 +245,8 @@ class MyTabs extends React.Component{
                     }}
                 />
                 <Tab.Screen
-                    onPress={() => {
-                        this.handleTabChange("Photo")
-                        this.takePhoto()
-                    }}
                     name="Photo"
-                    component={() => this.PhotoTabScreenGenerator(this.state.tab)}
+                    component={PhotoTabScreenGenerator}
 
                     // style={}
                     options={{
@@ -312,7 +293,6 @@ class MyTabs extends React.Component{
                     }}
                 />
                 <Tab.Screen
-                    onPress={() => handleTabChange("Plantpedia")}
                     name="Plantpedia"
                     component={PlantpediaTabScreenGenerator}
                     options={{
@@ -323,7 +303,6 @@ class MyTabs extends React.Component{
                     }}
                 />
                 <Tab.Screen
-                    onPress={() => handleTabChange("Settings")}
                     name="Settings"
                     component={SettingsTabScreenGenerator}
                     options={{

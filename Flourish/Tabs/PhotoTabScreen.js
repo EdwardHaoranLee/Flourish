@@ -44,10 +44,10 @@ export default function PhotoTabScreen() {
             <TouchableOpacity onPress={pickImage}>
                 <Image source={require('../assets/gallery2.png')} 
                 style={{
-                    height: 50, 
-                    width: 50,
+                    height: 70,
+                    width: 70,
                     position: 'absolute',
-                    bottom: 30,
+                    bottom: 20,
                     }}/>
             </TouchableOpacity>
             </View>
@@ -73,7 +73,7 @@ export default function PhotoTabScreen() {
                 <Image source={require('../assets/camera.png')} 
                 style={{
                     position: 'absolute',
-                    bottom: -20, // space from bottombar
+                    bottom: 20, // space from bottombar
                     height: 70,
                     width: 70,
                     }}/>
