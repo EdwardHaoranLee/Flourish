@@ -13,6 +13,7 @@
     "@react-native-community/image-picker-ios": "^1.0.1",
     "@react-navigation/bottom-tabs": "^5.10.6",
     "@react-navigation/stack": "^5.12.3",
+    "axios": "^0.21.0",
     "expo": "~39.0.2",
     "expo-camera": "~9.0.0",
     "expo-image-picker": "~9.1.1",
@@ -28,6 +29,7 @@
     "react-native-screens": "^2.13.0",
     "react-native-svg": "12.1.0",
     "react-native-web": "~0.13.12",
+    "react-native-web-webview": "^1.0.2",
     "react-native-webview": "^10.10.2",
     "react-navigation": "^4.4.3"
   },
