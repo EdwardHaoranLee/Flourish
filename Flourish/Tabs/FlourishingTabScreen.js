@@ -7,7 +7,7 @@ export default function FlourishingTabScreen() {
     const renderItem = ({ item }) => {
         // console.log(item);
         return (
-            <Todo data={{ 'name': item.name, 'task': item.task, 'freq': item.freq, 'date': item.date }} />
+            <Todo data={{ 'name': item.name, 'task': item.task, 'freq': item.freq, 'date': item.date, 'checked': item.checked }} />
         );
     }
 
@@ -64,28 +64,32 @@ const TODAY_DATA = [
         'name': 'The Green Ball',
         'task': 'Watering',
         'freq': '1/week',
-        'date': 'Nov. 7'
+        'date': 'Nov. 7',
+        'checked': 'false',
     },
     {
         'id': '1',
         'name': 'The Red Ball',
         'task': 'Watering',
         'freq': '1/week',
-        'date': 'Nov. 7'
+        'date': 'Nov. 7',
+        'checked': 'true',
     },
     {
         'id': '2',
         'name': 'The Blue Ball',
         'task': 'Watering',
         'freq': '1/week',
-        'date': 'Nov. 7'
+        'date': 'Nov. 7',
+        'checked': 'true',
     },
     {
         'id': '3',
         'name': 'The Orange Ball',
         'task': 'Watering',
         'freq': '1/week',
-        'date': 'Nov. 7'
+        'date': 'Nov. 8',
+        'checked': 'true',
     },
 ]
 

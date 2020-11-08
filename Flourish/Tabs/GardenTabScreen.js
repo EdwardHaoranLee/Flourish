@@ -6,7 +6,7 @@ import PlantCard from '../Components/Garden/PlantCard'
 
 export default function GardenTabScreen() {
     const renderItem = ({ item }) => {
-        if (item.id < DATA.length - 1) {
+        // if (item.id < DATA.length - 1) {
             return (
                 <PlantCard
                     data={{
@@ -16,18 +16,18 @@ export default function GardenTabScreen() {
                     }}
                 />
             );
-        } else {
-            return (
-                <View style={{
-                    justifyContent: "center",
-                    alignItems: 'center',
-                }}>
-                    <TouchableOpacity style={styles.addPlantIcon}>
-                        <MaterialCommunityIcons name="plus" color="#CACACA" size={40} />
-                    </TouchableOpacity>
-                </View>
-            )
-        }
+        // } else {
+        //     return (
+        //         <View style={{
+        //             justifyContent: "center",
+        //             alignItems: 'center',
+        //         }}>
+        //             <TouchableOpacity style={styles.addPlantIcon}>
+        //                 <MaterialCommunityIcons name="plus" color="#CACACA" size={40} />
+        //             </TouchableOpacity>
+        //         </View>
+        //     )
+        // }
     }
 
     return (
@@ -101,5 +101,5 @@ const DATA = [
         "name": "My Red Plant",
         "binomial": "Echeveria Apus",
     },
-    { "id": "5" }
+    // { "id": "5" }
 ]
