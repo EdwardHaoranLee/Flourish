@@ -187,7 +187,7 @@ export default function GardenTabScreen() {
                                 {currPlant.reminder.map(i => (
                                     <TouchableOpacity key={i.key} style={{ ...modalStyles.mrItem, backgroundColor: '#ffffff' }}>
                                         <Text style={modalStyles.mrItemText}>{i.task}</Text>
-                                        <Text style={modalStyles.mrItemText}>{i.time}</Text>
+                                        <Text style={modalStyles.mrItemText}>{i.date}</Text>
                                     </TouchableOpacity>
                                 ))}
                             </View>
@@ -351,13 +351,17 @@ const DATA = [
         "reminder": [
             {
                 "key": 0,
+                "name": "The Green Ball",
                 "task": "WATERING",
-                "time": "Wed | 1 week",
+                "freq": "weekly",
+                "date": "Nov. 8",
             },
             {
                 "key": 1,
+                "name": "The Green Ball",
                 "task": "FERTILIZING",
-                "time": "Thu | 2 week",
+                "date": "Nov. 8",
+                "freq": "weekly",
             },
         ],
     },
@@ -382,13 +386,17 @@ const DATA = [
         "reminder": [
             {
                 "key": 0,
+                "name": "The Green Ball",
                 "task": "WATERING",
-                "time": "Wed | 1 week",
+                "freq": "weekly",
+                "date": "Nov. 8",
             },
             {
                 "key": 1,
+                "name": "The Green Ball",
                 "task": "FERTILIZING",
-                "time": "Thu | 2 week",
+                "date": "Nov. 8",
+                "freq": "weekly",
             },
         ],
     },
@@ -413,13 +421,17 @@ const DATA = [
         "reminder": [
             {
                 "key": 0,
+                "name": "The Green Ball",
                 "task": "WATERING",
-                "time": "Wed | 1 week",
+                "freq": "weekly",
+                "date": "Nov. 8",
             },
             {
                 "key": 1,
+                "name": "The Green Ball",
                 "task": "FERTILIZING",
-                "time": "Thu | 2 week",
+                "date": "Nov. 8",
+                "freq": "weekly",
             },
         ],
     },
@@ -444,13 +456,17 @@ const DATA = [
         "reminder": [
             {
                 "key": 0,
+                "name": "The Green Ball",
                 "task": "WATERING",
-                "time": "Wed | 1 week",
+                "freq": "weekly",
+                "date": "Nov. 8",
             },
             {
                 "key": 1,
+                "name": "The Green Ball",
                 "task": "FERTILIZING",
-                "time": "Thu | 2 week",
+                "date": "Nov. 8",
+                "freq": "weekly",
             },
         ],
     },
@@ -475,13 +491,17 @@ const DATA = [
         "reminder": [
             {
                 "key": 0,
+                "name": "The Green Ball",
                 "task": "WATERING",
-                "time": "Wed | 1 week",
+                "freq": "weekly",
+                "date": "Nov. 8",
             },
             {
                 "key": 1,
+                "name": "The Green Ball",
                 "task": "FERTILIZING",
-                "time": "Thu | 2 week",
+                "date": "Nov. 8",
+                "freq": "weekly",
             },
         ],
     },
