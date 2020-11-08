@@ -52,7 +52,7 @@ function loadMyPlants(test) {
                     {
                         "key": 1,
                         "name": "Red",
-                        "task": "FERTILIZING",
+                        "task": "FERTILIZE",
                         "date": new Date('May 4, 2020 17:29:03'),
                         "freq": "7",
                     },
@@ -87,7 +87,7 @@ function loadMyPlants(test) {
                     {
                         "key": 1,
                         "name": "The Succulents",
-                        "task": "FERTILIZING",
+                        "task": "FERTILIZE",
                         "date": new Date(Date.now()),
                         "freq": "14",
                     },
@@ -117,13 +117,13 @@ function loadMyPlants(test) {
                         "name": "Greens",
                         "task": "WATERING",
                         "freq": "7",
-                        "date": new Date('November 11, 2018 22:44:53'),
+                        "date": new Date('November 11, 2020 22:44:53'),
                     },
                     {
                         "key": 1,
                         "name": "Greens",
-                        "task": "FERTILIZING",
-                        "date": new Date('November 11, 2018 22:44:53'),
+                        "task": "FERTILIZE",
+                        "date": new Date('November 11, 2020 22:44:53'),
                         "freq": "7",
                     },
                 ],
@@ -157,7 +157,7 @@ function loadMyPlants(test) {
                     {
                         "key": 1,
                         "name": "Yeah",
-                        "task": "FERTILIZING",
+                        "task": "FERTILIZE",
                         "date": new Date('October 30, 2020 10:03:00'),
                         "freq": "7",
                     },
@@ -238,7 +238,7 @@ function MyTabs() {
                 component={PhotoTabScreenGenerator}
                 // style={}
                 options={{
-                    tabBarLabel: "Photo",
+                    tabBarLabel: "",
                     tabBarIcon: () => (
                         <View style={{
                             position: 'absolute',
