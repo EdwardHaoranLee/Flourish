@@ -33,7 +33,6 @@ export default class FlourishingTabScreen extends React.Component {
         for (let i = 0; i < plants.length; i++) {
             for (let j = 0; j < plants[i].reminder.length; j++) {
                 let r = plants[i].reminder[j];
-                console.log(r);
                 if (r.date.getTime() < today.getTime() + 1 * dayMili && r.date.getTime() > today.getTime() - dayMili) {
                     todayReminders.push(r);
                 } else if (r.date.getTime() <= week.getTime() && r.date.getTime() > today.getTime()) {

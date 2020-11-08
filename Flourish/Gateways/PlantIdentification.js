@@ -1,54 +1,41 @@
-import React from "react";
-import fileUrl from "file-url";
+import React from 'react';
+import { View, Image, StyleSheet } from 'react-native';
+import RNImgToBase64 from "react-native-image-base64";
 
-class PlantIdentification extends React.Component {
-    sendIdentification = (imageFilePath) => {
-        const files = [fileUrl(imageFilePath)];
-        const promises = files.map((file) => {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    const res = event.target.result;
-                    console.log(res);
-                    resolve(res);
-                }
-                reader.readAsDataURL(file)
-            })
+module.exports = function sendIdentification(FilePath){
+    let base64files
+    RNImgToBase64.getBase64ForTag(FilePath, base64 => {base64files = base64}, err => console.log(err))
+
+
+        console.log(base64files)
+
+        const data = {
+            api_key: "-- ask for one: https://web.plant.id/api-access-request/ --",
+            images: base64files,
+            modifiers: ["crops_fast", "similar_images"],
+            plant_language: "en",
+            plant_details: ["common_names",
+                "url",
+                "name_authority",
+                "wiki_description",
+                "taxonomy",
+                "synonyms"]
+        };
+
+        fetch('https://api.plant.id/v2/identify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
         })
-
-        Promise.all(promises).then((base64files) => {
-            console.log(base64files)
-
-            const data = {
-                api_key: "ftgMU1minamhEWUAjMdlh2VVWMTYPGSkT5BioLhADeQNkqDBrN",
-                images: base64files,
-                modifiers: ["crops_fast", "similar_images"],
-                plant_language: "en",
-                plant_details: ["common_names",
-                    "url",
-                    "name_authority",
-                    "wiki_description",
-                    "taxonomy",
-                    "synonyms"]
-            };
-
-            fetch('https://api.plant.id/v2/identify', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
             })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                    return(data)
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    return(error)
-                });
-        })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
 
-    };
-}
+
+};

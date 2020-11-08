@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Button, View, Platform, StyleSheet, TouchableOpacity, Text, Image} from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Camera} from 'expo-camera';
+const plantID = require("../Gateways/PlantIdentification")
+
 
 export default function PhotoTabScreen() {
-
-
 
     const [hasPermission, setHasPermission] = useState(null);
     const [image, setImage] = useState(null);
@@ -37,9 +37,9 @@ export default function PhotoTabScreen() {
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             allowsEditing: true
         });
-        console.log(result);
         if (!result.cancelled) {
             setImage(result.path);
+            plantID(result.uri)
         }};
 
         return (
@@ -68,6 +68,7 @@ export default function PhotoTabScreen() {
             if (!result.cancelled) {
                 this.setState({ image: result.uri });
             }
+            plantID(result.uri)
         }
         
         return (
