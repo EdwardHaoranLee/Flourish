@@ -5,8 +5,6 @@ import { Camera} from 'expo-camera';
 
 export default function PhotoTabScreen() {
 
-
-
     const [hasPermission, setHasPermission] = useState(null);
     const [image, setImage] = useState(null);
 
@@ -37,9 +35,9 @@ export default function PhotoTabScreen() {
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             allowsEditing: true
         });
-        console.log(result);
         if (!result.cancelled) {
-            setImage(result.path);
+            setImage({ image:result });
+            console.log(image);
         }};
 
         return (
@@ -66,7 +64,8 @@ export default function PhotoTabScreen() {
             });
 
             if (!result.cancelled) {
-                this.setState({ image: result.uri });
+                setImage({ image: result.uri });
+                console.log(image)
             }
         }
         
