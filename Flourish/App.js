@@ -1,5 +1,9 @@
 'use strict'
-import * as React from 'react';
+
+
+
+
+import React from 'react';
 import {View, Image} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -10,40 +14,61 @@ import GardenTabScreen from './Tabs/GardenTabScreen'
 import PlantpediaTabScreen from './Tabs/PlantpediaTabScreen'
 import SettingsTabScreen from './Tabs/SettingsTabScreen'
 import PhotoTabScreen from './Tabs/PhotoTabScreen'
+import StorageAccess from "./Gateways/StorageAccess";
 
+const IS_TESTING = true
 const ActiveTintColor = "#ef5e85"
 const InactiveTintColor = "#cacaca"
-let myPlants = [
-    {
-        'id': '0',
-        'name': 'The Green Ball',
-        'task': 'Watering',
-        'freq': 7,
-        'date': new Date('November 1, 2020 03:24:00')
-    },
-    {
-        'id': '1',
-        'name': 'The Red Ball',
-        'task': 'Watering',
-        'freq': 7,
-        'date': new Date('May 4, 2020 17:29:03')
-    },
-    {
-        'id': '2',
-        'name': 'The Blue Ball',
-        'task': 'Watering',
-        'freq': 7,
-        'date': new Date(Date.now())
-    },
-    {
-        'id': '3',
-        'name': 'The Orange Ball',
-        'task': 'Watering',
-        'freq': 7,
-        'date': new Date('November 3, 2018 22:44:53')
-    },
 
-]
+function loadMyPlants(test) {
+    if (test){
+        return [
+            {
+                'id': '0',
+                'name': 'The Green Ball',
+                'task': 'Watering',
+                'freq': 7,
+                "img": "https://i1.kknews.cc/SIG=52b418/26r5000002r82qro63ro.jpg",
+                'date': new Date('October 29, 2020 10:03:00'),
+                "binomial": "Echeveria Apus",
+            },
+            {
+                'id': '1',
+                'name': 'The Red Ball',
+                'task': 'Watering',
+                'freq': 7,
+                "img": "https://www.zhifure.com/upload/images/2018/3/27164120681.jpg",
+                'date': new Date('May 4, 2020 17:29:03'),
+                "binomial": "Echeveria Apus",
+            },
+            {
+                'id': '2',
+                'name': 'The Blue Ball',
+                'task': 'Watering',
+                'freq': 7,
+                "img": "https://duorou.zw3e.com/uploads/allimg/180828/3-1PRQ12410227.jpg",
+                'date': new Date(Date.now()),
+                "binomial": "Echeveria Apus",
+            },
+            {
+                'id': '3',
+                'name': 'The Orange Ball',
+                'task': 'Watering',
+                'freq': 7,
+                "img": "https://i.epochtimes.com/assets/uploads/2020/05/shutterstock_1714301299-600x400.jpg",
+                'date': new Date('November 3, 2018 22:44:53'),
+                "binomial": "Echeveria Apus",
+            },
+
+        ]
+    } else {
+        const access = new StorageAccess({})
+        return access.readPlants()
+    }
+}
+
+let myPlants = loadMyPlants(IS_TESTING)
+// let myReminders
 
 const FlourishingTabScreenGenerator = () => {
     return (

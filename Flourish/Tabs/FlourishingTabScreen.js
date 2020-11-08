@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, Text, View, ScrollView, SectionList } from 'react-native';
 import Todo from '../Components/Flourishing/Todo';
 
@@ -78,7 +78,7 @@ const TODAY_DATA = [
         'name': 'The Green Ball',
         'task': 'Watering',
         'freq': 7,
-        'date': new Date(Date.now()),
+        'date': new Date("October 13, 2014 11:13:00"),
         'checked': false,
     },
     {
@@ -86,7 +86,7 @@ const TODAY_DATA = [
         'name': 'The Red Ball',
         'task': 'Watering',
         'freq': 7,
-        'date': new Date(Date.now()),
+        'date': new Date("October 29, 2020 10:03:00"),
         'checked': true,
     },
     {
@@ -94,7 +94,7 @@ const TODAY_DATA = [
         'name': 'The Blue Ball',
         'task': 'Watering',
         'freq': 30,
-        'date': new Date(Date.now()),
+        'date': new Date("May 29, 2019 22:03:47"),
         'checked': true,
     },
     {
@@ -102,7 +102,7 @@ const TODAY_DATA = [
         'name': 'The Orange Ball',
         'task': 'Watering',
         'freq': 7,
-        'date': new Date(Date.now()),
+        'date': new Date("October 29, 2020 10:03:00"),
         'checked': true,
     },
 ]
