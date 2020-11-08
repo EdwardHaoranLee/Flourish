@@ -13,7 +13,8 @@ export default class Todo extends React.Component {
                     height: 70,
                     borderRadius: 10,
                     backgroundColor: '#ffffff',
-                    marginVertical: 7,
+                    marginVertical: 10,
+                    marginHorizontal: 5,
                     paddingVertical: 10,
                     paddingHorizontal: 16,
 
