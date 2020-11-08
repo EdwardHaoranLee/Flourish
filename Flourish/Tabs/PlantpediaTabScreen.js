@@ -1,5 +1,5 @@
 import React from 'react';
-import dismissKeyboard, { Button, Text, View } from 'react-native';
+import dismissKeyboard, { Button, Text, View, Image, TouchableOpacity} from 'react-native';
 import { WebView } from "react-native-webview";
 import { SearchBar } from 'react-native-elements';
 
@@ -39,35 +39,44 @@ export default class PlantpediaTabScreen extends React.Component  {
         return (
             <View style={{flex: 1}}>
                 <View style={{
-                    height: 50,
+                    height: 43,
+                    backgroundColor: "#ef5e85"
                 }}/>
                 <View style={{
                     flexDirection: "row",
                     alignItems: 'center',
                 }}>
-                    <View style={{width:"80%"}}>
+                    <View style={{width:350, height: 50, backgroundColor:"white", borderWidth:2.5, 
+                            borderColor: '#ef5e85', borderRadius: 50, top: 1, left: 3}}>
                         <SearchBar
-                            placeholder="Type Here..."
+                            placeholder="Search for plant here..."
                             onChangeText={this.updateSearch}
                             value={search}
                             lightTheme={true}
                             containerStyle={{
-                                backgroundColor: "#f0f0f0"
+                                backgroundColor: "white",
+                                borderRadius: 50,
+                                height: 6,
+                                width: 290,
+                                left: 10
                             }}
                             inputContainerStyle={{
-                                backgroundColor: "#cacaca"
+                                backgroundColor: "white"
                             }}
                             returnKeyLabel={"Search"}
                             returnKeyType={"search"}
                             onSubmitEditing={this.searchWiki}
-
                         />
                     </View>
-
-                    <Button
-                        onPress={this.searchWiki}
-                        title="Search"
-                    />
+                    <TouchableOpacity onPress={this.searchWiki}>
+                        <Image source={require('../assets/search4.jpg')} 
+                        style={{
+                        top: 5,
+                        height: 40, 
+                        width: 40,
+                        left: 10,
+                        bottom: 0}}/>
+                    </TouchableOpacity>
                 </View>
 
 
