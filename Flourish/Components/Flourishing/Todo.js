@@ -38,6 +38,12 @@ export default class Todo extends React.Component {
 
     toggleCheckBox = () => {
         this.setState(prevState => ({ checking: !prevState.checking }));
+        const freq = this.state.freq;
+        // if (this.state.checking == true) {
+        //     this.setState(prevState => ({'date': new Date(prevState.date.getTime() +  freq*24*60*60*1000)}))
+        // } else {
+        //     this.setState(prevState => ({'date': new Date(prevState.date.getTime() -  freq*24*60*60*1000)}))
+        // }
     }
 
     render() {

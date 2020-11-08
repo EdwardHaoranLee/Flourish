@@ -179,7 +179,7 @@ export default function GardenTabScreen() {
                                 {currPlant.reminder.map(i => (
                                     <TouchableOpacity key={i.key} style={{ ...modalStyles.mrItem, backgroundColor: '#ffffff' }}>
                                         <Text style={modalStyles.mrItemText}>{i.task}</Text>
-                                        <Text style={modalStyles.mrItemText}>{i.time}</Text>
+                                        <Text style={modalStyles.mrItemText}>{i.date.getMonth()}. {i.date.getDate()}</Text>
                                     </TouchableOpacity>
                                 ))}
                             </View>
@@ -232,12 +232,12 @@ const modalStyles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: '#00000020',
+        backgroundColor: '#ffffff60',
         // marginTop: 22
     },
     modalView: {
         flex: 1,
-        width: '90%',
+        width: '91%',
         marginTop: 16,
         marginBottom: 32,
         backgroundColor: "#f0f0f0",
