@@ -63,7 +63,7 @@ export default class FlourishingTabScreen extends React.Component {
             <SafeAreaView style={styles.container}>
                 <SectionList
                     style={styles.sectionContainer}
-                    sections={DATA}
+                    sections={this.state.remainder}
                     keyExtractor={(item, index) => item + index}
                     renderItem={item => this.renderItem(item)}
                     renderSectionHeader={({ section: { title } }) => (
