@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SafeAreaView, StatusBar, StyleSheet, Text, View, ScrollView, FlatList, TouchableOpacity, Modal, Image, SectionList } from 'react-native';
+import { TouchableHighlight } from "react-native-gesture-handler";
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // import PlantCard from '../Components/Garden/PlantCard'
@@ -69,7 +70,7 @@ class PlantCard extends React.Component {
 
 export default function GardenTabScreen() {
     const [modalVisible, setModalVisible] = useState(false);
-    const [currPlant, setCurrPlant] = useState({});
+    const [currPlant, setCurrPlant] = useState(DATA[0]);
 
     const renderItem = ({ item }) => {
         // if (item.id < DATA.length - 1) {
@@ -85,7 +86,7 @@ export default function GardenTabScreen() {
                         "binomial": item.binomial,
                         "intro": item.intro,
                         "maintain": item.maintain,
-                        // "reminder": item.reminder,
+                        "reminder": item.reminder,
                     })
                     setModalVisible(true);
                 }}>
@@ -131,14 +132,14 @@ export default function GardenTabScreen() {
                 <View style={modalStyles.centeredView}>
                     <ScrollView style={modalStyles.modalView}>
                         <TouchableOpacity
-                            style={{ width: 50, height: 50, position: 'absolute', top: -7, left: -14, zIndex: 10 }}
+                            style={{ width: 50, height: 50, position: 'absolute', top: 14, left: -14, zIndex: 10 }}
                             onPress={() => {
                                 setModalVisible(!modalVisible);
                             }}
                         >
                             <MaterialCommunityIcons name="chevron-left" color="#CACACA" size={40} />
                         </TouchableOpacity>
-                        <View style={modalStyles.rowContainer}>
+                        <View style={{ ...modalStyles.rowContainer, marginTop: 32 }}>
                             <View style={{ ...modalStyles.plantImage, marginBottom: 16, }}>
                                 <Image
                                     style={modalStyles.plantImage}
@@ -156,26 +157,39 @@ export default function GardenTabScreen() {
                         <View style={modalStyles.rowContainer}>
                             <View style={{ ...modalStyles.mrContainer, backgroundColor: '#ffffff' }}>
                                 <Text style={{ ...modalStyles.mrContainerHeader, color: '#505050' }}>MAINTAIN</Text>
+                                {
+                                    console.log(currPlant.maintain)
+                                }
                                 {currPlant.maintain.map(i => (
-                                    <View style={modalStyles.mrItem}>
+                                    <View key={i.key} style={modalStyles.mrItem}>
                                         <Text style={modalStyles.mrItemText}>{i.title}</Text>
                                         <Text style={modalStyles.mrItemText}>{i.spec}</Text>
                                     </View>
                                 ))}
-                                {
-                                    console.log(currPlant.maintain)
-                                }
+
                             </View>
                         </View>
-                        <View style={modalStyles.rowContainer}>
+                        <View style={{ ...modalStyles.rowContainer, marginBottom: 32 }}>
                             <View style={{ ...modalStyles.mrContainer, backgroundColor: '#EF5E85' }}>
-                                <Text style={{ ...modalStyles.mrContainerHeader, color: '#ffffff' }}>REMINDER</Text>
-                                {/* {currPlant.reminder.map(i => (
-                                    <View style={{...modalStyles.mrItem, backgroundColor:'#ffffff'}}>
+                                <View style={{
+                                    width: '100%',
+                                    flexDirection: 'row',
+                                    justifyContent: 'space-between'
+                                }}>
+                                    <Text style={{ ...modalStyles.mrContainerHeader, color: '#ffffff' }}>REMINDER</Text>
+                                    <TouchableOpacity style={{borderWidth: 2, borderColor:'#ffffff', marginBottom: 7, borderRadius:20,}}>
+                                        {/* <Text style={{ ...modalStyles.mrContainerHeader, color: '#ffffff', textDecorationLine: 'none' }}>+</Text> */}
+                                        <MaterialCommunityIcons name="plus" color="#ffffff" size={20} />
+                                    </TouchableOpacity>
+
+                                </View>
+
+                                {currPlant.reminder.map(i => (
+                                    <TouchableOpacity key={i.key} style={{ ...modalStyles.mrItem, backgroundColor: '#ffffff' }}>
                                         <Text style={modalStyles.mrItemText}>{i.task}</Text>
                                         <Text style={modalStyles.mrItemText}>{i.time}</Text>
-                                    </View>
-                                ))} */}
+                                    </TouchableOpacity>
+                                ))}
                             </View>
                         </View>
 
@@ -237,7 +251,7 @@ const modalStyles = StyleSheet.create({
         backgroundColor: "#f0f0f0",
         borderRadius: 10,
         paddingHorizontal: 32,
-        paddingVertical: 32,
+        // paddingVertical: 32,
         // alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -248,23 +262,13 @@ const modalStyles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5
     },
-    openButton: {
-        backgroundColor: "#F194FF",
-        borderRadius: 20,
-        padding: 10,
-        elevation: 2
-    },
     rowContainer: {
         flex: 1,
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
+        // marginVertical: 20,
     },
-    modalText: {
-        marginBottom: 15,
-        textAlign: "center"
-    },
-
     plantImage: {
         width: 150,
         height: 200,
@@ -311,7 +315,7 @@ const modalStyles = StyleSheet.create({
     },
     mrItem: {
         flexDirection: 'row',
-        justifyContent:'space-between',
+        justifyContent: 'space-between',
         marginVertical: 3,
         marginHorizontal: -5,
         padding: 5,
@@ -334,24 +338,28 @@ const DATA = [
         "intro": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum eveniet laboriosam dolore perspiciatis, numquam iusto provident nobis, commodi voluptatem repellat nemo, quae voluptate facilis fuga labore in? Debitis, minus!",
         "maintain": [
             {
+                "key": 0,
                 "title": "SUNSHINE",
                 "spec": "Full daylight",
             },
             {
+                "key": 1,
                 "title": "WATERING",
                 "spec": "1 per week",
             },
         ],
-        // "reminder": [
-        //     {
-        //         "task": "WATERING",
-        //         "time": "Wed | 1 week",
-        //     },
-        //     {
-        //         "task": "FERTILIZING",
-        //         "time": "Thu | 2 week",
-        //     },
-        // ],
+        "reminder": [
+            {
+                "key": 0,
+                "task": "WATERING",
+                "time": "Wed | 1 week",
+            },
+            {
+                "key": 1,
+                "task": "FERTILIZING",
+                "time": "Thu | 2 week",
+            },
+        ],
     },
     {
         "id": "1",
@@ -361,24 +369,28 @@ const DATA = [
         "intro": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum eveniet laboriosam dolore perspiciatis, numquam iusto provident nobis, commodi voluptatem repellat nemo, quae voluptate facilis fuga labore in? Debitis, minus!",
         "maintain": [
             {
+                "key": 0,
                 "title": "SUNSHINE",
                 "spec": "Full daylight",
             },
             {
+                "key": 1,
                 "title": "WATERING",
                 "spec": "1 per week",
             },
         ],
-        // "reminder": [
-        //     {
-        //         "task": "WATERING",
-        //         "time": "Wed | 1 week",
-        //     },
-        //     {
-        //         "task": "FERTILIZING",
-        //         "time": "Thu | 2 week",
-        //     },
-        // ],
+        "reminder": [
+            {
+                "key": 0,
+                "task": "WATERING",
+                "time": "Wed | 1 week",
+            },
+            {
+                "key": 1,
+                "task": "FERTILIZING",
+                "time": "Thu | 2 week",
+            },
+        ],
     },
     {
         "id": "2",
@@ -388,24 +400,28 @@ const DATA = [
         "intro": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum eveniet laboriosam dolore perspiciatis, numquam iusto provident nobis, commodi voluptatem repellat nemo, quae voluptate facilis fuga labore in? Debitis, minus!",
         "maintain": [
             {
+                "key": 0,
                 "title": "SUNSHINE",
                 "spec": "Full daylight",
             },
             {
+                "key": 1,
                 "title": "WATERING",
                 "spec": "1 per week",
             },
         ],
-        // "reminder": [
-        //     {
-        //         "task": "WATERING",
-        //         "time": "Wed | 1 week",
-        //     },
-        //     {
-        //         "task": "FERTILIZING",
-        //         "time": "Thu | 2 week",
-        //     },
-        // ],
+        "reminder": [
+            {
+                "key": 0,
+                "task": "WATERING",
+                "time": "Wed | 1 week",
+            },
+            {
+                "key": 1,
+                "task": "FERTILIZING",
+                "time": "Thu | 2 week",
+            },
+        ],
     },
     {
         "id": "3",
@@ -415,24 +431,28 @@ const DATA = [
         "intro": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum eveniet laboriosam dolore perspiciatis, numquam iusto provident nobis, commodi voluptatem repellat nemo, quae voluptate facilis fuga labore in? Debitis, minus!",
         "maintain": [
             {
+                "key": 0,
                 "title": "SUNSHINE",
                 "spec": "Full daylight",
             },
             {
+                "key": 1,
                 "title": "WATERING",
                 "spec": "1 per week",
             },
         ],
-        // "reminder": [
-        //     {
-        //         "task": "WATERING",
-        //         "time": "Wed | 1 week",
-        //     },
-        //     {
-        //         "task": "FERTILIZING",
-        //         "time": "Thu | 2 week",
-        //     },
-        // ],
+        "reminder": [
+            {
+                "key": 0,
+                "task": "WATERING",
+                "time": "Wed | 1 week",
+            },
+            {
+                "key": 1,
+                "task": "FERTILIZING",
+                "time": "Thu | 2 week",
+            },
+        ],
     },
     {
         "id": "4",
@@ -442,24 +462,28 @@ const DATA = [
         "intro": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum eveniet laboriosam dolore perspiciatis, numquam iusto provident nobis, commodi voluptatem repellat nemo, quae voluptate facilis fuga labore in? Debitis, minus!",
         "maintain": [
             {
+                "key": 0,
                 "title": "SUNSHINE",
                 "spec": "Full daylight",
             },
             {
+                "key": 1,
                 "title": "WATERING",
                 "spec": "1 per week",
             },
         ],
-        // "reminder": [
-        //     {
-        //         "task": "WATERING",
-        //         "time": "Wed | 1 week",
-        //     },
-        //     {
-        //         "task": "FERTILIZING",
-        //         "time": "Thu | 2 week",
-        //     },
-        // ],
+        "reminder": [
+            {
+                "key": 0,
+                "task": "WATERING",
+                "time": "Wed | 1 week",
+            },
+            {
+                "key": 1,
+                "task": "FERTILIZING",
+                "time": "Thu | 2 week",
+            },
+        ],
     },
 ]
 
