@@ -197,17 +197,23 @@ const SettingsTabScreenGenerator = () => {
     );
 }
 
-const PhotoTabScreenGenerator = (tab) => {
-    return (
-        <PhotoTabScreen tab={tab}/>
-    );
-}
 
 const Tab = createBottomTabNavigator();
 
 class MyTabs extends React.Component{
 
-    takePhotoButton = React.createRef()
+    constructor(props) {
+        super(props);
+        this.takePhotoButton = React.createRef()
+    }
+
+    PhotoTabScreenGenerator = (tab) => {
+        return (
+            <PhotoTabScreen tab={tab} ref={this.takePhotoButton}/>
+        );
+    }
+
+
 
     state = {
         tab: "Flourishing"
@@ -219,9 +225,8 @@ class MyTabs extends React.Component{
         })
     }
 
-    takePhoto = (tabName) => {
-        this.handleTabChange(tabName)
-
+    takePhoto = () => {
+        this.takePhotoButton.current.TakePhoto()
     }
 
     render(){
@@ -255,9 +260,12 @@ class MyTabs extends React.Component{
                     }}
                 />
                 <Tab.Screen
-                    onPress={() => this.handleTabChange("Photo")}
+                    onPress={() => {
+                        this.handleTabChange("Photo")
+                        this.takePhoto()
+                    }}
                     name="Photo"
-                    component={() => PhotoTabScreenGenerator(this.state.tab)}
+                    component={() => this.PhotoTabScreenGenerator(this.state.tab)}
 
                     // style={}
                     options={{
