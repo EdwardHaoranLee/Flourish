@@ -10,19 +10,49 @@ import GardenTabScreen from './Tabs/GardenTabScreen'
 import PlantpediaTabScreen from './Tabs/PlantpediaTabScreen'
 import SettingsTabScreen from './Tabs/SettingsTabScreen'
 
-// const
 const ActiveTintColor = "#ef5e85"
 const InactiveTintColor = "#cacaca"
+let myPlants = [
+    {
+        'id': '0',
+        'name': 'The Green Ball',
+        'task': 'Watering',
+        'freq': 7,
+        'date': new Date('November 1, 2020 03:24:00')
+    },
+    {
+        'id': '1',
+        'name': 'The Red Ball',
+        'task': 'Watering',
+        'freq': 7,
+        'date': new Date('May 4, 2020 17:29:03')
+    },
+    {
+        'id': '2',
+        'name': 'The Blue Ball',
+        'task': 'Watering',
+        'freq': 7,
+        'date': new Date(Date.now())
+    },
+    {
+        'id': '3',
+        'name': 'The Orange Ball',
+        'task': 'Watering',
+        'freq': 7,
+        'date': new Date('November 3, 2018 22:44:53')
+    },
+
+]
 
 const FlourishingTabScreenGenerator = () => {
     return (
-        <FlourishingTabScreen />
+        <FlourishingTabScreen plants={myPlants}/>
     );
 }
 
 const GardenTabScreenGenerator = () => {
     return (
-        <GardenTabScreen />
+        <GardenTabScreen plants={myPlants}/>
     );
 }
 
