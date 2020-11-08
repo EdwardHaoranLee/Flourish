@@ -4,6 +4,9 @@ import * as ImagePicker from 'expo-image-picker';
 import { Camera} from 'expo-camera';
 
 export default function PhotoTabScreen() {
+
+
+
     const [hasPermission, setHasPermission] = useState(null);
     const [image, setImage] = useState(null);
 
