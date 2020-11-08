@@ -4,20 +4,23 @@ import Todo from '../Components/Flourishing/Todo';
 
 
 export default class FlourishingTabScreen extends React.Component {
-    componentDidMount() {
-        this.setState({
+    constructor(props) {
+        super(props)
+        this.state = {
             plants: this.props.plants,
+            reminders: [],
+            todayReminders: [],
+            weekReminders: [],
+        }
+    }
+    componentDidMount() {
+        // this.setState({
+        //     plants: this.props.plants,
 
-        })
+        // })
         this.getAllReminders();
     }
 
-    state = {
-        plants: [],
-        reminders: [],
-        todayReminders: [],
-        weekReminders: [],
-    }
 
     getAllReminders = () => {
         let plants = this.state.plants;
@@ -26,13 +29,15 @@ export default class FlourishingTabScreen extends React.Component {
         let dayMili = 24 * 60 * 60 * 1000
         let today = new Date(Date.now());
         let week = new Date(today.getTime() + 7 * dayMili);
-
+        console.log(plants)
+        
         for (let i = 0; i < plants.length; i++) {
-            for (let j = 0; j < plants[i].reminders.length; j++) {
-                let r = plants[i].reminders[j];
+            for (let j = 0; j < plants[i].reminder.length; j++) {
+                let r = plants[i].reminder[j];
+                console.log(r);
                 if (r.date.getTime() < today.getTime() + 1 * dayMili && r.date.getTime() > today.getTime() - dayMili) {
                     todayReminders.push(r);
-                } else if (r.date.getTime() < week.getTime()) {
+                } else if (r.date.getTime() <= week.getTime() && r.date.getTime() > today.getTime()) {
                     weekReminders.push(r);
                 }
             }
@@ -63,7 +68,7 @@ export default class FlourishingTabScreen extends React.Component {
             <SafeAreaView style={styles.container}>
                 <SectionList
                     style={styles.sectionContainer}
-                    sections={DATA}
+                    sections={this.state.reminders}
                     keyExtractor={(item, index) => item + index}
                     renderItem={item => this.renderItem(item)}
                     renderSectionHeader={({ section: { title } }) => (

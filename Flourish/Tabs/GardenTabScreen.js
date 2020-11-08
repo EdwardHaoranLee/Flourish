@@ -79,15 +79,7 @@ export default function GardenTabScreen() {
             <TouchableOpacity
                 onPress={() => {
                     console.log(1);
-                    setCurrPlant({
-                        "id": item.id,
-                        "img": item.img,
-                        "name": item.name,
-                        "binomial": item.binomial,
-                        "intro": item.intro,
-                        "maintain": item.maintain,
-                        "reminder": item.reminder,
-                    })
+                    setCurrPlant(item)
                     setModalVisible(true);
                 }}>
                 <PlantCard
@@ -157,9 +149,9 @@ export default function GardenTabScreen() {
                         <View style={modalStyles.rowContainer}>
                             <View style={{ ...modalStyles.mrContainer, backgroundColor: '#ffffff' }}>
                                 <Text style={{ ...modalStyles.mrContainerHeader, color: '#505050' }}>MAINTAIN</Text>
-                                {
+                                {/* {
                                     console.log(currPlant.maintain)
-                                }
+                                } */}
                                 {currPlant.maintain.map(i => (
                                     <View key={i.key} style={modalStyles.mrItem}>
                                         <Text style={modalStyles.mrItemText}>{i.title}</Text>
@@ -281,7 +273,7 @@ const modalStyles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
 
-        elevation: 5,
+        // elevation: 5,
     },
     plantName: {
         fontSize: 28,
