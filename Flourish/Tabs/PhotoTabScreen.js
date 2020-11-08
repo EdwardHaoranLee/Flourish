@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Button, View, Platform, StyleSheet, TouchableOpacity, Text, Image} from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Camera} from 'expo-camera';
-const PlantId = require('../Gateways/PlantIdentification')
 
 export default function PhotoTabScreen() {
+
 
 
     const [hasPermission, setHasPermission] = useState(null);
@@ -40,7 +40,6 @@ export default function PhotoTabScreen() {
         console.log(result);
         if (!result.cancelled) {
             setImage(result.path);
-
         }};
 
         return (
@@ -88,19 +87,15 @@ export default function PhotoTabScreen() {
     return (
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'stretch', }}>
             <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'} }>
-                {image != null &&
-                    <View>
-                    <Camera style={{height: '100%', width: '100%', justifyContent: 'center', alignItems: 'center'}}/>
-                        <View style={{flex: 1, flexDirection: 'row'}}>
-                        <View style = {{flex:3}}>
-                        <Library />
-                        </View>
-                        <View style = {{flex:3}}>
-                        <TakePhoto />
-                        </View>
+                <Camera style={{height: '100%', width: '100%', justifyContent: 'center', alignItems: 'center'}}/>
+                <View style={{flex: 1, flexDirection: 'row'}}>
+                    <View style = {{flex:3}}>
+                    <Library />
                     </View>
+                    <View style = {{flex:3}}>
+                    <TakePhoto />
                     </View>
-                }
+                </View>
             </View>
         </View>);
 }
