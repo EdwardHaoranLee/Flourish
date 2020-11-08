@@ -177,7 +177,7 @@ export default function GardenTabScreen() {
                                     justifyContent: 'space-between'
                                 }}>
                                     <Text style={{ ...modalStyles.mrContainerHeader, color: '#ffffff' }}>REMINDER</Text>
-                                    <TouchableOpacity style={{borderWidth: 2, borderColor:'#ffffff', marginBottom: 7, borderRadius:20,}}>
+                                    <TouchableOpacity style={{ borderWidth: 2, borderColor: '#ffffff', marginBottom: 7, borderRadius: 20, }}>
                                         {/* <Text style={{ ...modalStyles.mrContainerHeader, color: '#ffffff', textDecorationLine: 'none' }}>+</Text> */}
                                         <MaterialCommunityIcons name="plus" color="#ffffff" size={20} />
                                     </TouchableOpacity>
@@ -333,7 +333,7 @@ const DATA = [
     {
         "id": "0",
         "img": "https://i1.kknews.cc/SIG=52b418/26r5000002r82qro63ro.jpg",
-        "name": "My Red Plant",
+        "name": "Red",
         "binomial": "Echeveria Apus",
         "intro": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum eveniet laboriosam dolore perspiciatis, numquam iusto provident nobis, commodi voluptatem repellat nemo, quae voluptate facilis fuga labore in? Debitis, minus!",
         "maintain": [
@@ -351,13 +351,17 @@ const DATA = [
         "reminder": [
             {
                 "key": 0,
+                "name": "Red",
                 "task": "WATERING",
-                "time": "Wed | 1 week",
+                "freq": "7",
+                "date": new Date('May 4, 2020 17:29:03'),
             },
             {
                 "key": 1,
+                "name": "Red",
                 "task": "FERTILIZING",
-                "time": "Thu | 2 week",
+                "date": new Date('May 4, 2020 17:29:03'),
+                "freq": "7",
             },
         ],
     },
@@ -382,13 +386,17 @@ const DATA = [
         "reminder": [
             {
                 "key": 0,
+                "name": "The Succulents",
                 "task": "WATERING",
-                "time": "Wed | 1 week",
+                "freq": "14",
+                "date": new Date(Date.now()),
             },
             {
                 "key": 1,
+                "name": "The Succulents",
                 "task": "FERTILIZING",
-                "time": "Thu | 2 week",
+                "date": new Date(Date.now()),
+                "freq": "14",
             },
         ],
     },
@@ -413,13 +421,17 @@ const DATA = [
         "reminder": [
             {
                 "key": 0,
+                "name": "Greens",
                 "task": "WATERING",
-                "time": "Wed | 1 week",
+                "freq": "7",
+                "date": new Date('November 11, 2018 22:44:53'),
             },
             {
                 "key": 1,
+                "name": "Greens",
                 "task": "FERTILIZING",
-                "time": "Thu | 2 week",
+                "date": new Date('November 11, 2018 22:44:53'),
+                "freq": "7",
             },
         ],
     },
@@ -444,46 +456,54 @@ const DATA = [
         "reminder": [
             {
                 "key": 0,
+                "name": "Yeah",
                 "task": "WATERING",
-                "time": "Wed | 1 week",
+                "freq": "7",
+                "date": new Date('October 29, 2020 10:03:00'),
             },
             {
                 "key": 1,
+                "name": "Yeah",
                 "task": "FERTILIZING",
-                "time": "Thu | 2 week",
+                "date": new Date('October 30, 2020 10:03:00'),
+                "freq": "7",
             },
         ],
     },
-    {
-        "id": "4",
-        "img": "https://i.zw3e.com/zw_news_map/550/2017121/1512527973023359675.jpg",
-        "name": "Leaves",
-        "binomial": "Echeveria Apus",
-        "intro": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum eveniet laboriosam dolore perspiciatis, numquam iusto provident nobis, commodi voluptatem repellat nemo, quae voluptate facilis fuga labore in? Debitis, minus!",
-        "maintain": [
-            {
-                "key": 0,
-                "title": "SUNSHINE",
-                "spec": "Full daylight",
-            },
-            {
-                "key": 1,
-                "title": "WATERING",
-                "spec": "1 per week",
-            },
-        ],
-        "reminder": [
-            {
-                "key": 0,
-                "task": "WATERING",
-                "time": "Wed | 1 week",
-            },
-            {
-                "key": 1,
-                "task": "FERTILIZING",
-                "time": "Thu | 2 week",
-            },
-        ],
-    },
+    // {
+    //     "id": "4",
+    //     "img": "https://i.zw3e.com/zw_news_map/550/2017121/1512527973023359675.jpg",
+    //     "name": "Leaves",
+    //     "binomial": "Echeveria Apus",
+    //     "intro": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum eveniet laboriosam dolore perspiciatis, numquam iusto provident nobis, commodi voluptatem repellat nemo, quae voluptate facilis fuga labore in? Debitis, minus!",
+    //     "maintain": [
+    //         {
+    //             "key": 0,
+    //             "title": "SUNSHINE",
+    //             "spec": "Full daylight",
+    //         },
+    //         {
+    //             "key": 1,
+    //             "title": "WATERING",
+    //             "spec": "1 per week",
+    //         },
+    //     ],
+    //     "reminder": [
+    //         {
+    //             "key": 0,
+    //             "name": "The Green Ball",
+    //             "task": "WATERING",
+    //             "freq": "weekly",
+    //             "date": "Nov. 8",
+    //         },
+    //         {
+    //             "key": 1,
+    //             "name": "The Green Ball",
+    //             "task": "FERTILIZING",
+    //             "date": "Nov. 8",
+    //             "freq": "weekly",
+    //         },
+    //     ],
+    // },
 ]
 

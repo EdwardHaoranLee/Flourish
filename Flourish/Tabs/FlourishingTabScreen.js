@@ -3,25 +3,59 @@ import { SafeAreaView, StatusBar, StyleSheet, Text, View, ScrollView, SectionLis
 import Todo from '../Components/Flourishing/Todo';
 
 
-export default class FlourishingTabScreen extends React.Component{
+export default class FlourishingTabScreen extends React.Component {
     componentDidMount() {
         this.setState({
-            plants: this.props.plants
+            plants: this.props.plants,
 
         })
+        this.getAllReminders();
     }
 
     state = {
         plants: [],
-        reminders: []
+        reminders: [],
+        todayReminders: [],
+        weekReminders: [],
     }
 
+    getAllReminders = () => {
+        let plants = this.state.plants;
+        let todayReminders = [];
+        let weekReminders = [];
+        let dayMili = 24 * 60 * 60 * 1000
+        let today = new Date(Date.now());
+        let week = new Date(today.getTime() + 7 * dayMili);
+
+        for (let i = 0; i < plants.length; i++) {
+            for (let j = 0; j < plants[i].reminders.length; j++) {
+                let r = plants[i].reminders[j];
+                if (r.date.getTime() < today.getTime() + 1 * dayMili && r.date.getTime() > today.getTime() - dayMili) {
+                    todayReminders.push(r);
+                } else if (r.date.getTime() < week.getTime()) {
+                    weekReminders.push(r);
+                }
+            }
+        }
+
+        this.setState({ todayReminders: todayReminders, weekReminders: weekReminders });
+        this.setState({
+            reminders: [{
+                title: "Today",
+                data: todayReminders,
+            },
+            {
+                title: "This Week",
+                data: weekReminders,
+            }]
+        });
+    }
+
+
     renderItem = ({ item }) => {
-
         return (
-            <Todo name={item.name} task={item.task} freq={item.freq} date={item.date} checked={item.checked}/>
+            <Todo name={item.name} task={item.task} freq={item.freq} date={item.date} checked={false} />
         );
-
     }
 
     render() {
@@ -72,51 +106,51 @@ const styles = StyleSheet.create({
 });
 
 
-const TODAY_DATA = [
-    {
-        'id': '0',
-        'name': 'The Green Ball',
-        'task': 'Watering',
-        'freq': 7,
-        'date': new Date("October 13, 2014 11:13:00"),
-        'checked': false,
-    },
-    {
-        'id': '1',
-        'name': 'The Red Ball',
-        'task': 'Watering',
-        'freq': 7,
-        'date': new Date("October 29, 2020 10:03:00"),
-        'checked': true,
-    },
-    {
-        'id': '2',
-        'name': 'The Blue Ball',
-        'task': 'Watering',
-        'freq': 30,
-        'date': new Date("May 29, 2019 22:03:47"),
-        'checked': true,
-    },
-    {
-        'id': '3',
-        'name': 'The Orange Ball',
-        'task': 'Watering',
-        'freq': 7,
-        'date': new Date("October 29, 2020 10:03:00"),
-        'checked': true,
-    },
-]
+// const TODAY_DATA = [
+//     {
+//         'id': '0',
+//         'name': 'The Green Ball',
+//         'task': 'Watering',
+//         'freq': 7,
+//         'date': new Date("October 13, 2014 11:13:00"),
+//         'checked': false,
+//     },
+//     {
+//         'id': '1',
+//         'name': 'The Red Ball',
+//         'task': 'Watering',
+//         'freq': 7,
+//         'date': new Date("October 29, 2020 10:03:00"),
+//         'checked': true,
+//     },
+//     {
+//         'id': '2',
+//         'name': 'The Blue Ball',
+//         'task': 'Watering',
+//         'freq': 30,
+//         'date': new Date("May 29, 2019 22:03:47"),
+//         'checked': true,
+//     },
+//     {
+//         'id': '3',
+//         'name': 'The Orange Ball',
+//         'task': 'Watering',
+//         'freq': 7,
+//         'date': new Date("October 29, 2020 10:03:00"),
+//         'checked': true,
+//     },
+// ]
 
 
-const WEEK_DATA = TODAY_DATA;
+// const WEEK_DATA = TODAY_DATA;
 
-const DATA = [
-    {
-        title: "Today",
-        data: TODAY_DATA,
-    },
-    {
-        title: "This Week",
-        data: WEEK_DATA,
-    }
-]
+// const DATA = [
+//     {
+//         title: "Today",
+//         data: TODAY_DATA,
+//     },
+//     {
+//         title: "This Week",
+//         data: WEEK_DATA,
+//     }
+// ]

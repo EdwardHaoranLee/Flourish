@@ -24,42 +24,145 @@ function loadMyPlants(test) {
     if (test){
         return [
             {
-                'id': '0',
-                'name': 'The Green Ball',
-                'task': 'Watering',
-                'freq': 7,
+                "id": "0",
                 "img": "https://i1.kknews.cc/SIG=52b418/26r5000002r82qro63ro.jpg",
-                'date': new Date('October 29, 2020 10:03:00'),
+                "name": "Red",
                 "binomial": "Echeveria Apus",
+                "intro": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum eveniet laboriosam dolore perspiciatis, numquam iusto provident nobis, commodi voluptatem repellat nemo, quae voluptate facilis fuga labore in? Debitis, minus!",
+                "maintain": [
+                    {
+                        "key": 0,
+                        "title": "SUNSHINE",
+                        "spec": "Full daylight",
+                    },
+                    {
+                        "key": 1,
+                        "title": "WATERING",
+                        "spec": "1 per week",
+                    },
+                ],
+                "reminder": [
+                    {
+                        "key": 0,
+                        "name": "Red",
+                        "task": "WATERING",
+                        "freq": "7",
+                        "date": new Date('May 4, 2020 17:29:03'),
+                    },
+                    {
+                        "key": 1,
+                        "name": "Red",
+                        "task": "FERTILIZING",
+                        "date": new Date('May 4, 2020 17:29:03'),
+                        "freq": "7",
+                    },
+                ],
             },
             {
-                'id': '1',
-                'name': 'The Red Ball',
-                'task': 'Watering',
-                'freq': 7,
+                "id": "1",
                 "img": "https://www.zhifure.com/upload/images/2018/3/27164120681.jpg",
-                'date': new Date('May 4, 2020 17:29:03'),
+                "name": "The Succulents",
                 "binomial": "Echeveria Apus",
+                "intro": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum eveniet laboriosam dolore perspiciatis, numquam iusto provident nobis, commodi voluptatem repellat nemo, quae voluptate facilis fuga labore in? Debitis, minus!",
+                "maintain": [
+                    {
+                        "key": 0,
+                        "title": "SUNSHINE",
+                        "spec": "Full daylight",
+                    },
+                    {
+                        "key": 1,
+                        "title": "WATERING",
+                        "spec": "1 per week",
+                    },
+                ],
+                "reminder": [
+                    {
+                        "key": 0,
+                        "name": "The Succulents",
+                        "task": "WATERING",
+                        "freq": "14",
+                        "date": new Date(Date.now()),
+                    },
+                    {
+                        "key": 1,
+                        "name": "The Succulents",
+                        "task": "FERTILIZING",
+                        "date": new Date(Date.now()),
+                        "freq": "14",
+                    },
+                ],
             },
             {
-                'id': '2',
-                'name': 'The Blue Ball',
-                'task': 'Watering',
-                'freq': 7,
+                "id": "2",
                 "img": "https://duorou.zw3e.com/uploads/allimg/180828/3-1PRQ12410227.jpg",
-                'date': new Date(Date.now()),
+                "name": "Greens",
                 "binomial": "Echeveria Apus",
+                "intro": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum eveniet laboriosam dolore perspiciatis, numquam iusto provident nobis, commodi voluptatem repellat nemo, quae voluptate facilis fuga labore in? Debitis, minus!",
+                "maintain": [
+                    {
+                        "key": 0,
+                        "title": "SUNSHINE",
+                        "spec": "Full daylight",
+                    },
+                    {
+                        "key": 1,
+                        "title": "WATERING",
+                        "spec": "1 per week",
+                    },
+                ],
+                "reminder": [
+                    {
+                        "key": 0,
+                        "name": "Greens",
+                        "task": "WATERING",
+                        "freq": "7",
+                        "date": new Date('November 11, 2018 22:44:53'),
+                    },
+                    {
+                        "key": 1,
+                        "name": "Greens",
+                        "task": "FERTILIZING",
+                        "date": new Date('November 11, 2018 22:44:53'),
+                        "freq": "7",
+                    },
+                ],
             },
             {
-                'id': '3',
-                'name': 'The Orange Ball',
-                'task': 'Watering',
-                'freq': 7,
+                "id": "3",
                 "img": "https://i.epochtimes.com/assets/uploads/2020/05/shutterstock_1714301299-600x400.jpg",
-                'date': new Date('November 3, 2018 22:44:53'),
+                "name": "Yeah",
                 "binomial": "Echeveria Apus",
+                "intro": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum eveniet laboriosam dolore perspiciatis, numquam iusto provident nobis, commodi voluptatem repellat nemo, quae voluptate facilis fuga labore in? Debitis, minus!",
+                "maintain": [
+                    {
+                        "key": 0,
+                        "title": "SUNSHINE",
+                        "spec": "Full daylight",
+                    },
+                    {
+                        "key": 1,
+                        "title": "WATERING",
+                        "spec": "1 per week",
+                    },
+                ],
+                "reminder": [
+                    {
+                        "key": 0,
+                        "name": "Yeah",
+                        "task": "WATERING",
+                        "freq": "7",
+                        "date": new Date('October 29, 2020 10:03:00'),
+                    },
+                    {
+                        "key": 1,
+                        "name": "Yeah",
+                        "task": "FERTILIZING",
+                        "date": new Date('October 30, 2020 10:03:00'),
+                        "freq": "7",
+                    },
+                ],
             },
-
         ]
     } else {
         const access = new StorageAccess({})
