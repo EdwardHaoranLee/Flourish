@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     },
     sectionContainer: {
         flex: 1,
-        paddingHorizontal: 16,
+        paddingHorizontal: 11,
         // paddingBottom: 500,
         // marginVertical: 20,
         // marginBottom: 0,
