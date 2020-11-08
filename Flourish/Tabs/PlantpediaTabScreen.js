@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import dismissKeyboard, { Button, Text, View } from 'react-native';
 import { WebView } from "react-native-webview";
 import { SearchBar } from 'react-native-elements';
