@@ -197,111 +197,138 @@ const SettingsTabScreenGenerator = () => {
     );
 }
 
-const PhotoTabScreenGenerator = () => {
+const PhotoTabScreenGenerator = (tab) => {
     return (
-        <PhotoTabScreen />
+        <PhotoTabScreen tab={tab}/>
     );
 }
 
 const Tab = createBottomTabNavigator();
 
-function MyTabs() {
-    return (
-        <Tab.Navigator tabBarOptions={{
-            activeTintColor: ActiveTintColor,
-            inactiveTintColor: InactiveTintColor
-        }}>
-            <Tab.Screen
-                name="Flourishing"
-                component={FlourishingTabScreenGenerator}
-                options={{
-                    tabBarLabel: "Flourishing",
-                    tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="water" color={color} size={size} />
-                    ),
-                    // tabBarBadge: 0,
-                }}
-            />
-            <Tab.Screen
-                name="Garden"
-                component={GardenTabScreenGenerator}
-                options={{
+class MyTabs extends React.Component{
 
-                    tabBarLabel: "Garden",
-                    tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="flower" color={color} size={size} />
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="Photo"
-                component={PhotoTabScreenGenerator}
-                // style={}
-                options={{
-                    tabBarLabel: "Photo",
-                    tabBarIcon: () => (
-                        <View style={{
-                            position: 'absolute',
-                            bottom: 0, // space from bottombar
-                            height: 70,
-                            width: 70,
-                            borderRadius: 58,
-                            backgroundColor: '#ffffff',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            // shadowColor: "#00000050",
-                            // shadowOffset: {
-                            //     width: 0,
-                            //     height: 0,
-                            // },
-                            // shadowOpacity: 0.3,
-                            // shadowRadius: 3.84,
-                            // elevation: 3,
-                            borderWidth: 3,
-                            borderColor: '#ef5e85',
-                        }}>
-                            <Image
-                                source={require("./assets/camera.png")}
-                                style={{
-                                    // width: 40,
-                                    // height: 40,
-                                    alignContent: 'center',
-                                    justifyContent: 'center',
-                                    // position: 'absolute',
-                                    // bottom: 10, // space from bottombar
-                                    height: 50,
-                                    width: 50,
-                                    borderRadius: 58,
-                                    alignItems: 'center',
+    takePhotoButton = React.createRef()
 
-                                }}
-                            />               
-                        </View>
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="Plantpedia"
-                component={PlantpediaTabScreenGenerator}
-                options={{
-                    tabBarLabel: "Plantpedia",
-                    tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="magnify" color={color} size={size} />
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="Settings"
-                component={SettingsTabScreenGenerator}
-                options={{
-                    tabBarLabel: "Settings",
-                    tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="tune" color={color} size={size} />
-                    ),
-                }}
-            />
-        </Tab.Navigator>
-    );
+    state = {
+        tab: "Flourishing"
+    }
+
+    handleTabChange = (tabName) => {
+        this.setState({
+            tab: tabName
+        })
+    }
+
+    takePhoto = (tabName) => {
+        this.handleTabChange(tabName)
+
+    }
+
+    render(){
+        return (
+            <Tab.Navigator tabBarOptions={{
+                activeTintColor: ActiveTintColor,
+                inactiveTintColor: InactiveTintColor
+            }}>
+                <Tab.Screen
+                    onPress={() => this.handleTabChange("Flourishing")}
+                    name="Flourishing"
+                    component={FlourishingTabScreenGenerator}
+                    options={{
+                        tabBarLabel: "Flourishing",
+                        tabBarIcon: ({ color, size }) => (
+                            <MaterialCommunityIcons name="water" color={color} size={size} />
+                        ),
+                        // tabBarBadge: 0,
+                    }}
+                />
+                <Tab.Screen
+                    onPress={() => this.handleTabChange("Garden")}
+                    name="Garden"
+                    component={GardenTabScreenGenerator}
+                    options={{
+
+                        tabBarLabel: "Garden",
+                        tabBarIcon: ({ color, size }) => (
+                            <MaterialCommunityIcons name="flower" color={color} size={size} />
+                        ),
+                    }}
+                />
+                <Tab.Screen
+                    onPress={() => this.handleTabChange("Photo")}
+                    name="Photo"
+                    component={() => PhotoTabScreenGenerator(this.state.tab)}
+
+                    // style={}
+                    options={{
+                        tabBarLabel: "Photo",
+                        tabBarIcon: () => (
+                            <View style={{
+                                position: 'absolute',
+                                bottom: 0, // space from bottombar
+                                height: 70,
+                                width: 70,
+                                borderRadius: 58,
+                                backgroundColor: '#ffffff',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                // shadowColor: "#00000050",
+                                // shadowOffset: {
+                                //     width: 0,
+                                //     height: 0,
+                                // },
+                                // shadowOpacity: 0.3,
+                                // shadowRadius: 3.84,
+                                // elevation: 3,
+                                borderWidth: 3,
+                                borderColor: '#ef5e85',
+                            }}>
+                                <Image
+                                    source={require("./assets/camera.png")}
+                                    style={{
+                                        // width: 40,
+                                        // height: 40,
+                                        alignContent: 'center',
+                                        justifyContent: 'center',
+                                        // position: 'absolute',
+                                        // bottom: 10, // space from bottombar
+                                        height: 50,
+                                        width: 50,
+                                        borderRadius: 58,
+                                        alignItems: 'center',
+
+                                    }}
+                                />
+                            </View>
+                        ),
+                    }}
+                />
+                <Tab.Screen
+                    onPress={() => handleTabChange("Plantpedia")}
+                    name="Plantpedia"
+                    component={PlantpediaTabScreenGenerator}
+                    options={{
+                        tabBarLabel: "Plantpedia",
+                        tabBarIcon: ({ color, size }) => (
+                            <MaterialCommunityIcons name="magnify" color={color} size={size} />
+                        ),
+                    }}
+                />
+                <Tab.Screen
+                    onPress={() => handleTabChange("Settings")}
+                    name="Settings"
+                    component={SettingsTabScreenGenerator}
+                    options={{
+                        tabBarLabel: "Settings",
+                        tabBarIcon: ({ color, size }) => (
+                            <MaterialCommunityIcons name="tune" color={color} size={size} />
+                        ),
+                    }}
+                />
+            </Tab.Navigator>
+        );
+    }
+
 }
 
 export default function App() {
