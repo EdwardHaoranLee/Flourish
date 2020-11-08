@@ -42,11 +42,10 @@ export default function PhotoTabScreen() {
         return (
             <View style={{flex: 1, width: 100, alignItems: 'center', justifyContent: 'center'}}>
             <TouchableOpacity onPress={pickImage}>
-                <Image source={require('../assets/photo.jpg')} 
+                <Image source={require('../assets/gallery2.png')} 
                 style={{
-                    Color: '#ffffff',
-                    height: 40, 
-                    width: 40,
+                    height: 50, 
+                    width: 50,
                     position: 'absolute',
                     bottom: 30,
                     }}/>
@@ -83,7 +82,6 @@ export default function PhotoTabScreen() {
             <TouchableOpacity onPress={take}>
                 <Image source={require('../assets/camera.png')} 
                 style={{
-                    Color: '#ffffff',
                     height: 40, 
                     width: 40,
                     position: 'absolute',
