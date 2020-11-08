@@ -144,7 +144,6 @@ function MyTabs() {
                                     height: 50,
                                     width: 50,
                                     borderRadius: 58,
-                                    justifyContent: 'center',
                                     alignItems: 'center',
 
                                 }}
