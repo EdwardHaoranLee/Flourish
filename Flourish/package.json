@@ -8,25 +8,32 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.2.2",
+    "@ant-design/icons-react-native": "^2.2.1",
+    "@react-native-community/image-picker-ios": "^1.0.1",
     "@react-navigation/bottom-tabs": "^5.10.6",
     "@react-navigation/stack": "^5.12.3",
     "expo": "~39.0.2",
+    "expo-camera": "~9.0.0",
+    "expo-image-picker": "~9.1.1",
     "expo-status-bar": "~1.0.2",
+    "pod": "^0.9.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
+    "react-native-elements": "^3.0.0-alpha.1",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-image-crop-picker": "^0.35.1",
     "react-native-reanimated": "^1.13.1",
     "react-native-screens": "^2.13.0",
+    "react-native-svg": "12.1.0",
     "react-native-web": "~0.13.12",
-    "react-navigation": "^4.4.3",
-    "expo-image-picker": "~9.1.1",
-    "expo-camera": "~9.0.0"
+    "react-navigation": "^4.4.3"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
-    "@react-navigation/native": "^5.8.6"
+    "@react-navigation/native": "^5.8.6",
+    "react-native-vector-icons": "^7.1.0"
   },
   "private": true
 }
