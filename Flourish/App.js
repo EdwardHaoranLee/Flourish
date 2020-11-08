@@ -9,6 +9,7 @@ import FlourishingTabScreen from './Tabs/FlourishingTabScreen'
 import GardenTabScreen from './Tabs/GardenTabScreen'
 import PlantpediaTabScreen from './Tabs/PlantpediaTabScreen'
 import SettingsTabScreen from './Tabs/SettingsTabScreen'
+import PhotoTabScreen from './Tabs/PhotoTabScreen'
 
 const ActiveTintColor = "#ef5e85"
 const InactiveTintColor = "#cacaca"
@@ -68,6 +69,12 @@ const SettingsTabScreenGenerator = () => {
     );
 }
 
+const PhotoTabScreenGenerator = () => {
+    return (
+        <PhotoTabScreen />
+    );
+}
+
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
@@ -100,10 +107,10 @@ function MyTabs() {
             />
             <Tab.Screen
                 name="Photo"
-                component={PlantpediaTabScreenGenerator}
+                component={PhotoTabScreenGenerator}
                 // style={}
                 options={{
-                    tabBarLabel: " ",
+                    tabBarLabel: "Photo",
                     tabBarIcon: () => (
                         <View style={{
                             position: 'absolute',
@@ -141,7 +148,7 @@ function MyTabs() {
                                     alignItems: 'center',
 
                                 }}
-                            />
+                            />               
                         </View>
                     ),
                 }}
