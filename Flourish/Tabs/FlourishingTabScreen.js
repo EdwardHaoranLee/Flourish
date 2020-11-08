@@ -7,6 +7,7 @@ export default class FlourishingTabScreen extends React.Component{
     componentDidMount() {
         this.setState({
             plants: this.props.plants
+
         })
     }
 
