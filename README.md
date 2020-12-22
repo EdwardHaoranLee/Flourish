@@ -14,4 +14,4 @@ This project has win the "Best Life Convenience Hack" award.
 For more information and demos, please refer to our [hackathon project website](https://devpost.com/software/flourish-v8a513) or click the image below to see a pre-recorded video demo. 
 
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/gkUOp41keC0/0.jpg)](https://www.youtube.com/watch?v=gkUOp41keC0)
+[![Demo](https://img.youtube.com/vi/gkUOp41keC0/0.jpg)](https://www.youtube.com/watch?v=gkUOp41keC0)
