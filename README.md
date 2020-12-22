@@ -9,6 +9,8 @@ This project, Flourish, is started as the [group project](https://devpost.com/so
 
 Flourish is developed using React-Native framwork, working on both iOS and Android.
 
+This project has win the "Best Life Convenience Hack" award.
+
 For more information and demos, please refer to our [hackathon project website](https://devpost.com/software/flourish-v8a513) or click the image below to see a pre-recorded video demo. 
 
 
